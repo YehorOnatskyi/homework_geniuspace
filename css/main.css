@@ -1,0 +1,188 @@
+/* ==========================================================================
+   0. Roboto — локальні шрифти (fonts/)
+   ========================================================================== */
+@font-face {
+    font-display: swap;
+    font-family: 'Roboto';
+    font-weight: 300;
+    src: url('../fonts/roboto-v51-latin-300.woff2') format('woff2');
+}
+
+@font-face {
+    font-display: swap;
+    font-family: 'Roboto';
+    font-weight: 400;
+    src: url('../fonts/roboto-v51-latin-regular.woff2') format('woff2');
+}
+
+@font-face {
+    font-display: swap;
+    font-family: 'Roboto';
+    font-weight: 600;
+    src: url('../fonts/roboto-v51-latin-600.woff2') format('woff2');
+}
+
+@font-face {
+    font-display: swap;
+    font-family: 'Roboto';
+    font-weight: 700;
+    src: url('../fonts/roboto-v51-latin-700.woff2') format('woff2');
+}
+
+/* ==========================================================================
+   1. Змінні
+   ========================================================================== */
+:root {
+    --font-body: 'Roboto', sans-serif;
+    --font-display: 'Play', sans-serif;
+    --font-weight-light: 300;
+    --font-weight-regular: 400;
+    --font-weight-semibold: 600;
+    --font-weight-bold: 700;    --primary-color: #2B7FFF;
+    --secondary-color: #011C44;
+    --white-color: #ffff;
+    --gray-color: #747272;
+    font-family: var(--font-body);
+}
+
+/* ==========================================================================
+   2. База
+   ========================================================================== */
+body {
+    color: var(--secondary-color);
+}
+
+ul {
+    list-style-type: none;
+}
+
+p {
+    color: var(--secondary-color);
+    font-family: var(--font-body);
+    font-size: 22px;
+    line-height: 1.5;
+    font-weight: var(--font-weight-regular);
+}
+
+/* ==========================================================================
+   3. Типографіка — заголовки та акценти
+   ========================================================================== */
+h1,
+h2,
+.main-title {
+    font-family: var(--font-display);
+}
+
+h1 {
+    font-size: 140px;
+    font-weight: var(--font-weight-bold);
+    line-height: 0.8;
+    color: var(--primary-color);
+}
+
+h2 {
+    font-size: 64px;
+    /* Play підключено лише 400 і 700 */
+    font-weight: var(--font-weight-bold);
+    line-height: auto;
+}
+
+h4 {
+    font-size: 22px;
+    line-height: 1.2;
+}
+
+.blue-word {
+    color: var(--primary-color);
+}
+
+/* ==========================================================================
+   4. Компоненти — кнопки (hero, контакти)
+   ========================================================================== */
+.button-primary {
+    background-color: var(--primary-color);
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 32px;
+    cursor: pointer;
+    font-family: var(--font-body);
+    font-size: 18px;
+    font-weight: var(--font-weight-semibold);
+}
+
+.button-primary:hover {
+    background-color: transparent;
+    border: var(--primary-color) 1px solid;
+    color: var(--secondary-color);
+}
+
+/* ==========================================================================
+   5. Header
+   ========================================================================== */
+.nav-link {
+    text-decoration: none;
+    color: var(--secondary-color);
+    font-family: var(--font-body);
+    font-size: 18px;
+    font-weight: var(--font-weight-bold);
+}
+
+.nav-link:hover {
+    color: var(--primary-color);
+}
+
+/* ==========================================================================
+   6. Hero
+   ========================================================================== */
+.hero-subtitle {
+    font-size: 18px;
+}
+
+.hero-consultation {
+    font-size: 12px;
+}
+
+/* ==========================================================================
+   7. Секція «Чому ми» (#why-us)
+   ========================================================================== */
+.why-us-text {
+    font-size: 18px;
+    font-weight: var(--font-weight-regular);
+    line-height: 1.5;
+}
+
+/* ==========================================================================
+   8. Секція «Контакти» (#contact)
+   ========================================================================== */
+.contact-offer {
+    font-size: 22px;
+    line-height: auto;
+    font-weight: var(--font-weight-semibold);
+}
+
+/* ==========================================================================
+   9. Footer
+   ========================================================================== */
+footer {
+    background-color: var(--secondary-color);
+}
+
+.nav-link-footer {
+    font-family: var(--font-body);
+    font-size: 16px;
+    font-weight: var(--font-weight-regular);
+    text-decoration: none;
+    color: var(--white-color);
+}
+
+.nav-link-footer:hover {
+    color: var(--primary-color);
+}
+
+.copyright {
+    font-size: 13px;
+    line-height: auto;
+    font-weight: var(--font-weight-regular);
+    color: var(--gray-color);
+}
