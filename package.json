@@ -1,0 +1,10 @@
+{
+  "name": "beauty-zone-landing",
+  "private": true,
+  "scripts": {
+    "icons:build": "node scripts/build-sprite.mjs"
+  },
+  "devDependencies": {
+    "svgo": "^3.3.2"
+  }
+}
