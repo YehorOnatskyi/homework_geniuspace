@@ -135,8 +135,7 @@ h2 {
 
 .container {
     width: 100%;
-    max-width: 1440px;
-    height: auto;
+    max-width: 1288px;
     margin: 0 auto;
     padding: 0 24px;
 }
@@ -186,7 +185,7 @@ h2 {
     font-size: 64px;
     /* Play підключено лише 400 і 700 */
     font-weight: var(--font-weight-bold);
-    line-height: auto;
+    line-height: 1.15;
     text-align: center;
 }
 
@@ -277,15 +276,10 @@ header {
     left: 0;
     right: 0;
     z-index: 10;
-    padding: 16px 0;
+    padding: 32px 0;
     background-color: rgba(255, 255, 255, 0.45);
     backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(24px);
-}
-
-header .container {
-    padding-top: 0;
-    padding-bottom: 0;
 }
 
 .header-container {
@@ -322,7 +316,6 @@ header .container {
     font-family: var(--font-body);
     font-size: 18px;
     font-weight: var(--font-weight-bold);
-    box-sizing: inline-block;
 }
 
 .nav-link:hover {
@@ -339,12 +332,12 @@ header .container {
     justify-content: flex-start;
     width: 100%;
     height: 100%;
-    padding-top: 176px;
+    padding-top: 192px;
     box-sizing: border-box;
 }
 
 .hero-content {
-    max-width: 349px;
+    max-width: 684px;
 }
 
 .hero-subtitle {
@@ -379,7 +372,7 @@ header .container {
 
 @media screen and (max-width: 1439px) {
     .hero-section {
-        padding-top: 112px;
+        padding-top: 128px;
     }
 
     .hero-title {
@@ -399,7 +392,6 @@ header .container {
 .about-section-wrapper {
     display: flex;
     justify-content: space-between;
-    align-items: center;
     gap: 40px;
     min-height: auto;
 }
@@ -413,7 +405,9 @@ header .container {
 }
 
 .about-section-title {
+    margin-top: 40px;
     margin-bottom: 0;
+    text-align: left;
 }
 
 .about-section-text {
@@ -425,13 +419,10 @@ header .container {
     display: flex;
     flex-direction: column;
     gap: 40px;
-    flex-shrink: 0;
-    width: 559px;
+    width: 499px;
 }
 
 .about-section-photo {
-    position: relative;
-    z-index: 1;
     border-radius: 50%;
     width: 327px;
     height: 327px;
@@ -440,7 +431,6 @@ header .container {
 
 .about-section-photo--after {
     align-self: flex-end;
-    margin-left: 60px;
 }
 
 .about-star {
@@ -452,21 +442,21 @@ header .container {
 
 .about-star--blue {
     top: 96px;
-    right: 74px;
+    right: 14px;
     width: 35px;
     height: 35px;
 }
 
 .about-star--grey {
     top: 311px;
-    right: 106px;
+    right: 46px;
     width: 16px;
     height: 16px;
 }
 
 .about-star--navy {
     top: 350px;
-    right: 340px;
+    right: 280px;
     width: 56px;
     height: 56px;
 }
@@ -475,8 +465,6 @@ header .container {
    8. Секція «Чому ми» (#why-us)
    ========================================================================== */
 .why-us-section {
-    margin-left: 110px;
-    margin-right: 160px;
     margin-bottom: 88px;
 }
 
@@ -485,6 +473,16 @@ header .container {
     justify-content: space-between;
     align-items: center;
     gap: 46px;
+}
+
+.why-us-wrapper article {
+    width: 384px;
+    height: 176px;
+    padding: 24px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(167, 167, 167, 0.25);
+    box-sizing: border-box;
 }
 
 .why-us-title {
@@ -508,11 +506,6 @@ header .container {
 /* ==========================================================================
    9. Секція «Наші процедури» (#services)
    ========================================================================== */
-.container--services {
-    padding-left: 112px;
-    padding-right: 112px;
-}
-
 .services-section {
     margin-bottom: 96px;
 }
@@ -550,39 +543,35 @@ header .container {
     display: flex;
     gap: 16px;
 }
-.services-section-mask {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    padding: 24px;
-}
 
 .services-slider-btn:hover .icon-button-arrow {
     --color1: var(--primary-color);
     --color2: var(--white-color);
 }
 
-.services-section-mask h3 {
-    color: #fff;
-}
-.services-section-injection {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    padding: 24px;
-    color: var(--white-color);
-    text-align: center;
-    border-radius: 4px 120px;
-}
+.services-section-mask,
+.services-section-injection,
 .services-section-clean {
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
     padding: 24px;
-    color: var(--white-color);
-    text-align: center;
+    width: 327px;
+    height: 327px;
+    background-color: #fff;
     border-radius: 4px 120px;
+    box-shadow: 0 4px 20px rgba(167, 167, 167, 0.25);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    text-align: center;
+    color: var(--white-color);
 }
+
+.services-section-mask h3 {
+    color: #fff;
+}
+
 .services-section-mask {
     background-image: linear-gradient(
         180deg,
@@ -591,14 +580,6 @@ header .container {
         #011C44 99%
     ),
     url('../images/facial_mask.jpg');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    width: 327px;
-    height: 327px;
-    border-radius: 4px 120px; 
-    text-align: center;
-    /* transform: matrix(-1, 0, 0, 1, 0, 0);  */
 }
 
 .services-section-injection {
@@ -609,13 +590,8 @@ header .container {
         #011C44 99%
     ),
     url('../images/face_injection.jpg');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    width: 327px;
-    height: 327px;
-    object-fit: cover;
 }
+
 .services-section-clean {
     background-image: linear-gradient(
         180deg,
@@ -624,31 +600,23 @@ header .container {
         #011C44 99%
     ),
     url('../images/clean_face.jpg');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    width: 327px;
-    height: 327px;
-    object-fit: cover;
 }
 /* ==========================================================================
    10. Секція «Контакти» (#contact)
    ========================================================================== */
 .contact-section {
-    margin-left: 176px;
-    margin-right: 206px;
     margin-bottom: 96px;
 }
 
 .contact-offer {
     font-size: 22px;
-    line-height: auto;
+    line-height: 1.5;
     font-weight: var(--font-weight-semibold);
 }
 
 .contact-section-wrapper {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     gap: 40px;
 }
@@ -672,9 +640,9 @@ footer {
 
 .footer-container {
     display: flex;
-    align-items: center;
     gap: 40px;
     justify-content: space-between;
+    padding: 56px 0;
 }
 
 .footer-nav-list {
@@ -687,8 +655,6 @@ footer {
 .footer-address {
     display: flex;
     flex-direction: column;
-    gap: 186px;
-    margin: 56px 100px;
 }
 
 .footer-address-list {
@@ -720,15 +686,9 @@ footer {
 
 .copyright {
     font-size: 13px;
-    line-height: auto;
+    line-height: 1.5;
     font-weight: var(--font-weight-regular);
     color: var(--gray-color);
-}
-
-.footer-copyright {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
 }
 
 .footer-icons {
