@@ -2,9 +2,11 @@
   "name": "beauty-zone-landing",
   "private": true,
   "scripts": {
-    "icons:build": "node scripts/build-sprite.mjs"
+    "icons:build": "node scripts/build-sprite.mjs",
+    "dev": "live-server . --open=index.html --port=5500"
   },
   "devDependencies": {
+    "live-server": "^1.2.2",
     "svgo": "^3.3.2"
   }
 }

@@ -52,7 +52,7 @@
             <div class="hero-content">
               <p class="hero-subtitle">Косметологічна клініка</p>
               <h1 class="hero-title" lang="en">Beauty<br>Zone</h1>
-              <button type="button" class="button-primary hero-button">Замовити дзвінок</button>
+              <button type="button" class="button-primary hero-button" data-open-modal>Замовити дзвінок</button>
               <p class="hero-consultation">Запишись та отримай безкоштовну консультацію нашого косметолога</p>
             </div>
           </div>
@@ -96,6 +96,7 @@
       </section>
       </div>
       <!-- why us section -->
+      <div class="why-us-bg">
       <div class="container">
         <section class="why-us-section" id="why-us">
         <h2 class="why-us-title">Чому люди<br><span class="blue-word">обирають нас</span></h2>
@@ -132,7 +133,8 @@
         </article>
       </div>
       </section>
-    </div>
+      </div>
+      </div>
       <!-- services section -->
       <div class="container">
         <section class="services-section" id="services">
@@ -143,16 +145,41 @@
                 <use href="#icon-button-arrow"></use>
               </svg>
             </button>
-            <div class="services-section-wrapper">
-              <article class="services-section-mask">
-                <h3>Маски для обличчя</h3>
-              </article>
-              <article class="services-section-injection">
-                <h3>Ін'єкції для обличчя</h3>
-              </article>
-              <article class="services-section-clean">
-                <h3>Очищення обличчя</h3>
-              </article>
+            <div class="services-section-slider-main">
+              <div class="services-section-wrapper">
+                <article class="services-section-mask" data-slide-index="0" tabindex="0" role="button" aria-label="Маски для обличчя">
+                  <h3>Маски для обличчя</h3>
+                </article>
+                <article class="services-section-injection" data-slide-index="1" tabindex="0" role="button" aria-label="Ін'єкції для обличчя">
+                  <h3>Ін'єкції для обличчя</h3>
+                </article>
+                <article class="services-section-clean" data-slide-index="2" tabindex="0" role="button" aria-label="Очищення обличчя">
+                  <h3>Очищення обличчя</h3>
+                </article>
+              </div>
+              <div class="services-section-dots" role="tablist" aria-label="Процедури">
+                <button
+                  type="button"
+                  class="services-section-dot is-active"
+                  role="tab"
+                  aria-selected="true"
+                  aria-label="Маски для обличчя"
+                ></button>
+                <button
+                  type="button"
+                  class="services-section-dot"
+                  role="tab"
+                  aria-selected="false"
+                  aria-label="Ін'єкції для обличчя"
+                ></button>
+                <button
+                  type="button"
+                  class="services-section-dot"
+                  role="tab"
+                  aria-selected="false"
+                  aria-label="Очищення обличчя"
+                ></button>
+              </div>
             </div>
             <button type="button" class="services-slider-btn services-slider-btn--next" aria-label="Наступна процедура">
               <svg class="icon icon-button-arrow" width="44" height="44" aria-hidden="true">
@@ -178,7 +205,15 @@
         ></iframe>
        <div class="contact-section-form">
         <p class="contact-offer">Запишіться <span class="blue-word">безкоштовно</span> та отримайте подарунок</p>
-        <button type="button" class="button-primary">Записатися безкоштовно</button>
+        <form class="contact-form js-validate-form" action="#" method="post" novalidate>
+          <label class="visually-hidden" for="contact-name">Ваше ім'я та прізвище</label>
+          <input class="contact-input" id="contact-name" type="text" name="name" placeholder="Ваше ім'я та прізвище" autocomplete="name" required data-field="name" data-error-name="Введіть ім'я та прізвище (два слова)">
+          <label class="visually-hidden" for="contact-phone">Ваш номер телефону</label>
+          <input class="contact-input" id="contact-phone" type="tel" name="phone" placeholder="Ваш номер телефону" autocomplete="tel" required data-field="phone" data-error-name="Введіть номер у форматі +380XXXXXXXXX">
+          <label class="visually-hidden" for="contact-email">Ваша електронна пошта</label>
+          <input class="contact-input" id="contact-email" type="email" name="email" placeholder="Ваша електронна пошта" autocomplete="email" required data-field="email" data-error-name="Введіть коректний email">
+          <button type="submit" class="button-primary">Записатися безкоштовно</button>
+        </form>
        </div>
         </div>
       </section>
@@ -253,5 +288,33 @@
   <symbol id="icon-button-arrow" viewBox="0 0 32 32"><path fill="var(--color1, #fff)" stroke="var(--color2, #011c44)" stroke-width=".559" d="M.279 16c0 8.682 7.038 15.721 15.721 15.721S31.721 24.683 31.721 16 24.683.279 16 .279.279 7.317.279 16z"/><path fill="var(--color2, #011c44)" d="M9.841 16.514a.727.727 0 0 1 0-1.028l4.628-4.628a.728.728 0 0 1 1.029 1.028L11.384 16l4.114 4.114a.728.728 0 0 1-1.029 1.029l-4.628-4.628zm12.704.213h-12.19v-1.455h12.19z"/></symbol>
 </svg>
 <!-- svg-sprite:end -->
+
+<div class="modal-backdrop is-hidden" data-modal-backdrop aria-hidden="true"></div>
+<div class="modal is-hidden" id="call-modal" role="dialog" aria-modal="true" aria-labelledby="call-modal-title" aria-hidden="true">
+  <button type="button" class="modal-close" data-modal-close aria-label="Закрити">
+    <span aria-hidden="true">&times;</span>
+  </button>
+  <div class="modal-content">
+    <h2 class="modal-title" id="call-modal-title">Замовити<br>дзвінок</h2>
+    <div class="modal-block">
+      <p class="modal-subtitle">Запишіться <span class="blue-word">безкоштовно</span> та отримайте подарунок</p>
+      <form class="modal-form js-validate-form" action="#" method="post" novalidate>
+        <label class="visually-hidden" for="modal-name">Ваше ім'я та прізвище</label>
+        <input class="modal-input" id="modal-name" type="text" name="name" placeholder="Ваше ім'я та прізвище" autocomplete="name" required data-field="name" data-error-name="Введіть ім'я та прізвище (два слова)">
+        <label class="visually-hidden" for="modal-phone">Ваш номер телефону</label>
+        <input class="modal-input" id="modal-phone" type="tel" name="phone" placeholder="Ваш номер телефону" autocomplete="tel" required data-field="phone" data-error-name="Введіть номер у форматі +380XXXXXXXXX">
+        <label class="visually-hidden" for="modal-email">Ваша електронна пошта</label>
+        <input class="modal-input" id="modal-email" type="email" name="email" placeholder="Ваша електронна пошта" autocomplete="email" required data-field="email" data-error-name="Введіть коректний email">
+        <div class="modal-actions">
+          <button type="submit" class="button-primary modal-submit">Записатись безкоштовно</button>
+          <p class="modal-policy">
+            Натискаючи на кнопку я погоджуюсь <a class="modal-policy-link" href="#">з політикою конфіденційності</a>
+          </p>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<script src="./js/main.js" defer></script>
   </body>
 </html>
