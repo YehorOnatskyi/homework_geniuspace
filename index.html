@@ -101,18 +101,21 @@
         <section class="why-us-section" id="why-us">
         <h2 class="why-us-title">Чому люди<br><span class="blue-word">обирають нас</span></h2>
         <div class="why-us-wrapper">
-        <article>
+        <article class="why-us-card">
           <h3 class="visually-hidden">Досвід косметологів</h3>
-          <svg class="why-us-icon icon icon-molecule" width="40" height="44" aria-hidden="true">
+          <div class="why-us-card-inner">
+          <svg class="why-us-icon icon icon-molecule" width="48" height="48" aria-hidden="true">
             <use href="#icon-molecule"></use>
           </svg>
           <p class="why-us-text">
             Всі наші косметологи мають вищу медичну освіту та стаж роботи від 5
             років
           </p>
+          </div>
         </article>
-        <article>
+        <article class="why-us-card">
           <h3 class="visually-hidden">Професійне обладнання</h3>
+          <div class="why-us-card-inner">
           <svg class="why-us-icon icon icon-cosmetics" width="48" height="48" aria-hidden="true">
             <use href="#icon-cosmetics"></use>
           </svg>
@@ -120,16 +123,19 @@
             Використовуємо тільки професійне обладнання та косметику, перевірену
             часом
           </p>
+          </div>
         </article>
-        <article>
+        <article class="why-us-card">
           <h3 class="visually-hidden">Індивідуальний підхід</h3>
-          <svg class="why-us-icon icon icon-crown" width="43" height="36" aria-hidden="true">
+          <div class="why-us-card-inner">
+          <svg class="why-us-icon icon icon-crown" width="48" height="48" aria-hidden="true">
             <use href="#icon-crown"></use>
           </svg>
           <p class="why-us-text">
             Наша мета - підкреслити переваги та приховати недоліки, а не
             переробити
           </p>
+          </div>
         </article>
       </div>
       </section>
@@ -147,36 +153,31 @@
             </button>
             <div class="services-section-slider-main">
               <div class="services-section-wrapper">
-                <article class="services-section-mask" data-slide-index="0" tabindex="0" role="button" aria-label="Маски для обличчя">
+                <article class="services-section-mask" data-slide-index="0">
                   <h3>Маски для обличчя</h3>
                 </article>
-                <article class="services-section-injection" data-slide-index="1" tabindex="0" role="button" aria-label="Ін'єкції для обличчя">
+                <article class="services-section-injection" data-slide-index="1">
                   <h3>Ін'єкції для обличчя</h3>
                 </article>
-                <article class="services-section-clean" data-slide-index="2" tabindex="0" role="button" aria-label="Очищення обличчя">
+                <article class="services-section-clean" data-slide-index="2">
                   <h3>Очищення обличчя</h3>
                 </article>
               </div>
-              <div class="services-section-dots" role="tablist" aria-label="Процедури">
+              <div class="services-section-dots" role="group" aria-label="Процедури">
                 <button
                   type="button"
                   class="services-section-dot is-active"
-                  role="tab"
-                  aria-selected="true"
+                  aria-current="true"
                   aria-label="Маски для обличчя"
                 ></button>
                 <button
                   type="button"
                   class="services-section-dot"
-                  role="tab"
-                  aria-selected="false"
                   aria-label="Ін'єкції для обличчя"
                 ></button>
                 <button
                   type="button"
                   class="services-section-dot"
-                  role="tab"
-                  aria-selected="false"
                   aria-label="Очищення обличчя"
                 ></button>
               </div>

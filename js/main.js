@@ -142,7 +142,12 @@
     dots.forEach((dot, dotIndex) => {
       const isActive = dotIndex === index;
       dot.classList.toggle('is-active', isActive);
-      dot.setAttribute('aria-selected', String(isActive));
+
+      if (isActive) {
+        dot.setAttribute('aria-current', 'true');
+      } else {
+        dot.removeAttribute('aria-current');
+      }
     });
   }
 
@@ -265,13 +270,6 @@
 
     article.addEventListener('click', () => {
       goToIndex(slideIndex);
-    });
-
-    article.addEventListener('keydown', (event) => {
-      if (event.key === 'Enter' || event.key === ' ') {
-        event.preventDefault();
-        goToIndex(slideIndex);
-      }
     });
   });
 })();
