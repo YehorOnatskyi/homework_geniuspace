@@ -414,7 +414,6 @@ header .container {
     z-index: 1;
     margin-bottom: 40px;
     padding-top: 64px;
-    background-color: #fff;
 }
 
 .about-section-wrapper {
@@ -514,7 +513,7 @@ header .container {
 .why-us-bg::before {
     content: '';
     position: absolute;
-    top: -60px;
+    top: -75px;
     left: 0;
     width: 100%;
     bottom: 0;
@@ -524,6 +523,7 @@ header .container {
     background-size: 100% auto;
     background-position: center top;
     z-index: -1;
+    pointer-events: none;
 }
 
 .why-us-section {
@@ -531,6 +531,18 @@ header .container {
     margin-bottom: 88px;
     padding: 64px 0 88px;
     z-index: 1;
+}
+
+@media screen and (min-width: 1690px) {
+    .why-us-bg::before {
+        top: -175px;
+    }
+}
+
+@media screen and (min-width: 2600px) {
+    .why-us-bg::before {
+        top: -225px;
+    }
 }
 
 .why-us-wrapper {
@@ -569,6 +581,8 @@ header .container {
 }
 
 .why-us-title {
+    position: relative;
+    z-index: 1;
     margin-bottom: 48px;
     text-align: center;
     color: var(--secondary-color);
