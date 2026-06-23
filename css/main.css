@@ -280,6 +280,7 @@ h3 {
     ), url('../images/hero_background.png');
     background-repeat: no-repeat;
     background-position: center top;
+    background-size: cover;
     pointer-events: none;
     z-index: -2;
 }
@@ -409,6 +410,8 @@ header .container {
    7. Секція «Про нас» (#about)
    ========================================================================== */
 .about-section {
+    position: relative;
+    z-index: 1;
     margin-bottom: 40px;
     padding-top: 64px;
     background-color: #fff;
@@ -437,6 +440,7 @@ header .container {
 
 .about-section-images {
     position: relative;
+    z-index: 2;
     display: flex;
     flex-direction: column;
     gap: 40px;
@@ -510,18 +514,16 @@ header .container {
 .why-us-bg::before {
     content: '';
     position: absolute;
-    top: -75px;
-    right: 0;
-    bottom: 0;
+    top: -60px;
     left: 0;
-    width: min(100%, 1440px);
-    margin-inline: auto;
+    width: 100%;
+    bottom: 0;
     background-color: #fff;
     background-image: url('../images/background1.png');
     background-repeat: no-repeat;
     background-size: 100% auto;
     background-position: center top;
-    pointer-events: none;
+    z-index: -1;
 }
 
 .why-us-section {
@@ -594,6 +596,8 @@ header .container {
    9. Секція «Наші процедури» (#services)
    ========================================================================== */
 .services-section {
+    position: relative;
+    z-index: 1;
     margin-bottom: 96px;
 }
 
@@ -783,17 +787,20 @@ header .container {
 .contact-section-wrapper {
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: stretch;
     gap: 40px;
 }
 
 .contact-section-form {
     display: flex;
     flex-direction: column;
+    justify-content: center;
     gap: 16px;
     width: 423px;
+    height: 481px;
     padding: 48px 56px;
     border-radius: 32px;
+    box-sizing: border-box;
     background-color: var(--secondary-color);
     background-image: url('../images/modal-background.png');
     background-repeat: no-repeat;
@@ -866,7 +873,7 @@ footer {
     background-image: url('../images/footer-background.png');
     background-repeat: no-repeat;
     background-size: contain;
-    background-position: center right;
+    background-position: right center;
 }
 
 .footer-container {
@@ -878,7 +885,6 @@ footer {
 
 .footer-nav-list {
     display: flex;
-    align-items: center;
     gap: 16px;
     flex-direction: column;
 }
