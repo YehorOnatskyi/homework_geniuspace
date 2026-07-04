@@ -1,0 +1,11 @@
+theme: null
+plugins: []
+exclude:
+  - node_modules
+  - scss
+  - scripts
+  - package.json
+  - package-lock.json
+  - README.md
+  - .gitignore
+  - .github
