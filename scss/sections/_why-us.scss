@@ -11,23 +11,24 @@
             content: '';
             position: absolute;
             top: $why-us-wave-top;
-            left: 0;
-            width: 100%;
+            left: 50%;
+            width: 100vw;
+            margin-left: -50vw;
             bottom: 0;
             background-color: var(--surface-color);
             background-image: url('../images/background1.png');
             background-repeat: no-repeat;
-            background-size: auto 100%;
+            background-size: 100% auto;
             background-position: center top;
             z-index: -1;
             pointer-events: none;
 
             @include media-down($bp-tablet) {
-                top: 0;
-            }
-
-            @include media-up($bp-tablet) {
-                top: $why-us-wave-top-tablet;
+                top: $why-us-wave-top-mobile;
+                left: 0;
+                width: 100%;
+                margin-left: 0;
+                background-size: 100% auto;
             }
 
             @include media-up($breakpoint-why-us-lg) {
@@ -48,10 +49,14 @@
         flex-wrap: wrap;
         justify-content: center;
         align-items: flex-start;
-        gap: 12px;
+        gap: 56px;
         width: 100%;
         max-width: 1060px;
         margin-inline: auto;
+
+        @include media-down($bp-tablet) {
+            gap: 12px;
+        }
     }
 
     &__card {
@@ -105,6 +110,23 @@
 
         &-accent {
             @include text-accent;
+        }
+    }
+
+    &__star {
+        display: none;
+
+        @include media-down($bp-tablet) {
+            position: absolute;
+            top: -124px;
+            right: 22px;
+            z-index: 2;
+            display: block;
+            width: 40px;
+            height: 40px;
+            pointer-events: none;
+            transform-origin: center;
+            animation: star-spin-scale 5s ease-in-out infinite reverse;
         }
     }
 
