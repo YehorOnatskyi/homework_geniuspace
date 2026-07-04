@@ -1,0 +1,43 @@
+$bp-mobile: 480px;
+$bp-tablet: 768px;
+$bp-desktop: 1200px;
+
+$hero-title-font-size: 140px;
+$hero-title-line-height: 0.8;
+$hero-title-font-size-mobile: 54px;
+$hero-title-line-height-mobile: 46px;
+$hero-title-mobile-scale: $hero-title-font-size-mobile / $hero-title-font-size;
+$hero-title-line-height-mobile-ratio: $hero-title-line-height-mobile / $hero-title-font-size-mobile;
+
+:root {
+    --font-body: 'Roboto', sans-serif;
+    --font-display: 'Play', sans-serif;
+    --font-weight-light: 300;
+    --font-weight-regular: 400;
+    --font-weight-medium: 500;
+    --font-weight-semibold: 600;
+    --font-weight-bold: 700;
+
+    --primary-color: #2B7FFF;
+    --secondary-color: #011C44;
+    --white-color: #fff;
+    --gray-color: #747272;
+    --error-color: #d13a3a;
+    --error-shadow: rgba(209, 58, 58, 0.2);
+    --surface-color: #fff;
+    --overlay-dark: rgba(1, 31, 74, 0.5);
+
+    --header-logo-inset: 99px;
+    --header-logo-width: 72px;
+    --header-logo-gap: 32px;
+
+    --radius-pill: 32px;
+    --radius-card: 32px;
+    --input-height: 52px;
+
+    --bp-mobile: #{$bp-mobile};
+    --bp-tablet: #{$bp-tablet};
+    --bp-desktop: #{$bp-desktop};
+
+    font-family: var(--font-body);
+}

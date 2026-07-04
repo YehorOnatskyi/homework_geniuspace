@@ -1,0 +1,20 @@
+.button {
+    border: none;
+    padding: 16px 32px;
+    margin-bottom: 14px;
+    border-radius: var(--radius-pill);
+    cursor: pointer;
+    font-family: var(--font-body);
+    font-size: 18px;
+    font-weight: var(--font-weight-semibold);
+    text-wrap: nowrap;
+
+    &--primary {
+        background-color: var(--primary-color);
+        @include text-white;
+
+        &:hover {
+            @include button-primary-hover-outline;
+        }
+    }
+}

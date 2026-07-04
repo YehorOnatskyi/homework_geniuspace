@@ -1,0 +1,29 @@
+h1,
+h2,
+.main-title {
+    font-family: var(--font-display);
+}
+
+h1 {
+    font-size: 140px;
+    font-weight: var(--font-weight-bold);
+    line-height: 0.8;
+    padding: 20px 0 40px 0;
+    margin: 0 auto;
+    @include text-accent;
+}
+
+h2 {
+    font-size: 64px;
+    font-weight: var(--font-weight-bold);
+    line-height: 1.15;
+    text-align: center;
+}
+
+h3 {
+    font-size: 22px;
+    line-height: 1.2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

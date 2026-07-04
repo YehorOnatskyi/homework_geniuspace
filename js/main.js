@@ -14,8 +14,8 @@
     backdrop.classList.remove('is-hidden');
     modal.setAttribute('aria-hidden', 'false');
     backdrop.setAttribute('aria-hidden', 'false');
-    document.body.classList.add('modal-open');
-    modal.querySelector('.modal-close')?.focus();
+    document.body.classList.add('is-modal-open');
+    modal.querySelector('.modal__close')?.focus();
   }
 
   function closeModal() {
@@ -23,7 +23,7 @@
     backdrop.classList.add('is-hidden');
     modal.setAttribute('aria-hidden', 'true');
     backdrop.setAttribute('aria-hidden', 'true');
-    document.body.classList.remove('modal-open');
+    document.body.classList.remove('is-modal-open');
   }
 
   openButtons.forEach((button) => {
@@ -59,17 +59,17 @@
     const defaultError = input.dataset.errorName || 'Поле заповнено некоректно';
 
     input.value = value;
-    input.classList.remove('input-error');
+    input.classList.remove('is-error');
     input.setCustomValidity('');
 
     if (!value) {
-      input.classList.add('input-error');
+      input.classList.add('is-error');
       input.setCustomValidity('Поле є обовʼязковим');
       return false;
     }
 
     if (regex && !regex.test(value)) {
-      input.classList.add('input-error');
+      input.classList.add('is-error');
       input.setCustomValidity(defaultError);
       return false;
     }
@@ -107,17 +107,17 @@
 
       event.preventDefault();
       form.reset();
-      fields.forEach((input) => input.classList.remove('input-error'));
+      fields.forEach((input) => input.classList.remove('is-error'));
     });
   });
 })();
 
 (function () {
   const section = document.getElementById('services');
-  const wrapper = section?.querySelector('.services-section-wrapper');
-  const dots = section ? Array.from(section.querySelectorAll('.services-section-dot')) : [];
-  const prevBtn = section?.querySelector('.services-slider-btn:not(.services-slider-btn--next)');
-  const nextBtn = section?.querySelector('.services-slider-btn--next');
+  const wrapper = section?.querySelector('.services__track');
+  const dots = section ? Array.from(section.querySelectorAll('.services__dot')) : [];
+  const prevBtn = section?.querySelector('.services__arrow:not(.services__arrow--next)');
+  const nextBtn = section?.querySelector('.services__arrow--next');
   const slideCount = 3;
   const slideDurationMs = 300;
 
@@ -271,5 +271,65 @@
     article.addEventListener('click', () => {
       goToIndex(slideIndex);
     });
+  });
+})();
+
+(function () {
+  const menu = document.getElementById('mobile-menu');
+  const openButton = document.querySelector('[data-mobile-menu-open]');
+  const closeButton = menu?.querySelector('[data-mobile-menu-close]');
+  const menuLinks = menu ? Array.from(menu.querySelectorAll('.mobile-menu__link')) : [];
+
+  if (!menu || !openButton || !closeButton) {
+    return;
+  }
+
+  function setActiveLink() {
+    const hash = window.location.hash || '#about';
+
+    menuLinks.forEach((link) => {
+      link.classList.toggle('mobile-menu__link--active', link.hash === hash);
+    });
+  }
+
+  function openMenu() {
+    setActiveLink();
+    menu.classList.remove('is-hidden');
+    menu.setAttribute('aria-hidden', 'false');
+    openButton.setAttribute('aria-expanded', 'true');
+    openButton.setAttribute('aria-label', 'Закрити меню');
+    document.body.classList.add('is-mobile-menu-open');
+    closeButton.focus();
+  }
+
+  function closeMenu() {
+    menu.classList.add('is-hidden');
+    menu.setAttribute('aria-hidden', 'true');
+    openButton.setAttribute('aria-expanded', 'false');
+    openButton.setAttribute('aria-label', 'Відкрити меню');
+    document.body.classList.remove('is-mobile-menu-open');
+    openButton.focus();
+  }
+
+  function toggleMenu() {
+    if (menu.classList.contains('is-hidden')) {
+      openMenu();
+      return;
+    }
+
+    closeMenu();
+  }
+
+  openButton.addEventListener('click', toggleMenu);
+  closeButton.addEventListener('click', closeMenu);
+
+  menuLinks.forEach((link) => {
+    link.addEventListener('click', closeMenu);
+  });
+
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && !menu.classList.contains('is-hidden')) {
+      closeMenu();
+    }
   });
 })();

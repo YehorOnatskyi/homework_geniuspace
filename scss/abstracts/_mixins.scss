@@ -1,0 +1,133 @@
+$breakpoint-tablet: 767px;
+$breakpoint-laptop: 1439px;
+$breakpoint-why-us-lg: 1690px;
+$breakpoint-why-us-xl: 2600px;
+
+$why-us-wave-top: -25px;
+$why-us-wave-top-tablet: -75px;
+$why-us-wave-top-lg: -175px;
+$why-us-wave-top-xl: -225px;
+$why-us-fade-height-lg: 140px;
+$why-us-fade-height-xl: 160px;
+
+@mixin media-down($width) {
+    @media screen and (max-width: $width) {
+        @content;
+    }
+}
+
+@mixin media-up($width) {
+    @media screen and (min-width: $width) {
+        @content;
+    }
+}
+
+@mixin text-accent {
+    color: var(--primary-color);
+}
+
+@mixin text-secondary {
+    color: var(--secondary-color);
+}
+
+@mixin text-white {
+    color: var(--white-color);
+}
+
+@mixin text-gray {
+    color: var(--gray-color);
+}
+
+@mixin link-hover-primary {
+    &:hover {
+        color: var(--primary-color);
+    }
+}
+
+@mixin focus-ring($offset: 2px) {
+    outline: 2px solid var(--primary-color);
+    outline-offset: $offset;
+}
+
+@mixin focus-ring-visible($offset: 2px) {
+    &:focus-visible {
+        @include focus-ring($offset);
+    }
+}
+
+@mixin input-active-state {
+    &:active {
+        background-color: var(--gray-color);
+        border-color: var(--gray-color);
+    }
+}
+
+@mixin input-error-state {
+    &.is-error {
+        border-color: var(--error-color);
+        box-shadow: 0 0 0 2px var(--error-shadow);
+    }
+}
+
+@mixin form-input-base($padding-x: 24px, $font-size: 14px, $line-height: 1.2) {
+    width: 100%;
+    height: var(--input-height);
+    padding: 0 $padding-x;
+    border: 2px solid var(--gray-color);
+    border-radius: var(--radius-pill);
+    background-color: transparent;
+    font-size: $font-size;
+    line-height: $line-height;
+    @include text-white;
+
+    &::placeholder {
+        @include text-gray;
+    }
+
+    &:focus {
+        background-color: transparent;
+        @include focus-ring;
+    }
+
+    @include input-active-state;
+    @include input-error-state;
+}
+
+@mixin panel-dark-bg {
+    background-color: var(--secondary-color);
+    background-image: url('../images/modal-background.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+@mixin services-card-overlay($image-url) {
+    background-image: linear-gradient(
+        180deg,
+        rgba(1, 28, 68, 0) 47%,
+        rgba(1, 28, 68, 0.73) 83%,
+        var(--secondary-color) 99%
+    ),
+    url($image-url);
+}
+
+@mixin why-us-bottom-fade($fade-height) {
+    -webkit-mask-image: linear-gradient(
+        to bottom,
+        #000 0,
+        #000 calc(100% - #{$fade-height}),
+        transparent 100%
+    );
+    mask-image: linear-gradient(
+        to bottom,
+        #000 0,
+        #000 calc(100% - #{$fade-height}),
+        transparent 100%
+    );
+}
+
+@mixin button-primary-hover-outline {
+    background-color: transparent;
+    border: 1px solid var(--primary-color);
+    color: var(--secondary-color);
+}

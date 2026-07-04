@@ -1,0 +1,180 @@
+.services {
+    position: relative;
+    z-index: 1;
+    margin-bottom: 96px;
+
+    &__title {
+        margin-bottom: 48px;
+        text-align: center;
+
+        @include media-down($bp-tablet) {
+            font-family: var(--font-body);
+            font-size: 32.16px;
+            font-weight: var(--font-weight-medium);
+            line-height: 1;
+            letter-spacing: 0;
+            text-align: center;
+        }
+
+        &-accent {
+            @include text-accent;
+        }
+    }
+
+    &__slider {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 48px;
+
+        @include media-down($bp-tablet) {
+            gap: 0;
+            width: calc(100% + 8px);
+            margin-left: -4px;
+            margin-right: -4px;
+        }
+
+        &-main {
+            flex: 1;
+            min-width: 0;
+            max-width: 1064px;
+            width: 100%;
+            overflow: hidden;
+
+            @include media-down($bp-tablet) {
+                max-width: 320px;
+                width: 100%;
+                margin-left: auto;
+                margin-right: auto;
+            }
+        }
+    }
+
+    &__track {
+        display: flex;
+        gap: 16px;
+        justify-content: center;
+        overflow: hidden;
+        transition: transform 0.3s ease-in-out;
+
+        @include media-down($bp-tablet) {
+            gap: 0;
+            justify-content: flex-start;
+        }
+    }
+
+    &__arrow {
+        border: none;
+        background: transparent;
+        padding: 0;
+        cursor: pointer;
+        flex-shrink: 0;
+
+        @include media-down($bp-tablet) {
+            display: none;
+        }
+
+        &:hover,
+        &:focus-visible {
+            transform: scale(1.08);
+        }
+
+        @include focus-ring-visible(4px);
+
+        &:hover .icon--button-arrow,
+        &:focus-visible .icon--button-arrow {
+            --color1: var(--primary-color);
+            --color2: var(--white-color);
+        }
+
+        &--next {
+            .icon--button-arrow {
+                transform: scaleX(-1);
+            }
+
+            &:hover .icon--button-arrow,
+            &:focus-visible .icon--button-arrow {
+                transform: scaleX(-1);
+            }
+        }
+    }
+
+    &__dots {
+        display: flex;
+        justify-content: center;
+        gap: 12px;
+        margin-top: 24px;
+    }
+
+    &__dot {
+        width: 11px;
+        height: 11px;
+        padding: 0;
+        border: none;
+        border-radius: 50%;
+        background-color: var(--gray-color);
+        cursor: pointer;
+
+        &:hover,
+        &:focus-visible,
+        &.is-active {
+            background-color: var(--primary-color);
+        }
+
+        @include focus-ring-visible(3px);
+    }
+
+    &__card {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        padding: 24px;
+        width: 344px;
+        height: 456px;
+        flex-shrink: 0;
+        cursor: pointer;
+        background-color: var(--surface-color);
+        border-radius: 120px 4px 120px 4px;
+        box-shadow: 0 4px 20px rgba(167, 167, 167, 0.25);
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        text-align: center;
+        @include text-white;
+
+        &:hover,
+        &:focus-visible {
+            transform: scale(1.05);
+        }
+
+        @include focus-ring-visible(4px);
+
+        @include media-down($bp-tablet) {
+            flex: 0 0 100%;
+            width: 100%;
+            max-width: 320px;
+            height: 416px;
+            border-radius: 109.93px 3.66px 109.93px 3.66px;
+        }
+
+        &-title {
+            margin: 0;
+            font-size: 22px;
+            line-height: 26px;
+            font-weight: var(--font-weight-regular);
+            @include text-white;
+        }
+
+        &--mask {
+            @include services-card-overlay('../images/facial_mask.jpg');
+        }
+
+        &--injection {
+            @include services-card-overlay('../images/face_injection.jpg');
+        }
+
+        &--clean {
+            @include services-card-overlay('../images/clean_face.jpg');
+        }
+    }
+}
