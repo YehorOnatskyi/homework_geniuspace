@@ -88,9 +88,14 @@
         }
     }
 
-    @include media-down($bp-tablet) {
+    @include media-down($bp-about) {
         margin-bottom: 0;
         padding-top: 24px;
+
+        &__wrapper {
+            flex-direction: column;
+            align-items: flex-start;
+        }
 
         &__content {
             gap: 24px;

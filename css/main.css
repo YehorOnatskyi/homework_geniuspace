@@ -1118,10 +1118,14 @@ body.is-mobile-menu-open {
   animation-duration: 5s;
   animation-direction: reverse;
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 890px) {
   .about {
     margin-bottom: 0;
     padding-top: 24px;
+  }
+  .about__wrapper {
+    flex-direction: column;
+    align-items: flex-start;
   }
   .about__content {
     gap: 24px;
