@@ -139,7 +139,9 @@
             margin-bottom: 0;
 
             &:hover {
-                @include button-primary-hover-outline;
+                background-color: var(--primary-color);
+                border: none;
+                @include text-white;
             }
 
             @include media-down($bp-contact) {

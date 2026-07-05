@@ -1684,9 +1684,9 @@ body.is-mobile-menu-open {
   margin-bottom: 0;
 }
 .contact__actions .button--primary:hover {
-  background-color: transparent;
-  border: 1px solid var(--primary-color);
-  color: var(--secondary-color);
+  background-color: var(--primary-color);
+  border: none;
+  color: var(--white-color);
 }
 @media screen and (max-width: 1022px) {
   .contact__actions .button--primary {
