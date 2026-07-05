@@ -1,11 +1,15 @@
 .contact {
     margin-bottom: 96px;
 
+    @include media-down($bp-contact) {
+        margin-bottom: 0;
+    }
+
     &__title {
         margin-bottom: 40px;
         text-align: center;
 
-        @include media-down($bp-tablet) {
+        @include media-down($bp-contact) {
             font-family: var(--font-body);
             font-size: 32px;
             font-weight: var(--font-weight-medium);
@@ -27,7 +31,7 @@
         text-align: center;
         @include text-white;
 
-        @include media-down($bp-tablet) {
+        @include media-down($bp-contact) {
             max-width: 272px;
             line-height: 1;
         }
@@ -43,7 +47,7 @@
         align-items: stretch;
         gap: 40px;
 
-        @include media-down($bp-tablet) {
+        @include media-down($bp-contact) {
             flex-direction: column;
             align-items: center;
             gap: 24px;
@@ -63,7 +67,7 @@
         box-sizing: border-box;
         @include panel-dark-bg;
 
-        @include media-down($bp-tablet) {
+        @include media-down($bp-contact) {
             order: 1;
             width: 100%;
             max-width: 320px;
@@ -80,11 +84,16 @@
         border: 0;
         border-radius: var(--radius-card);
 
-        @include media-down($bp-tablet) {
+        @include media-down($bp-contact) {
             order: 2;
-            width: 100%;
-            max-width: 360px;
+            display: block;
+            width: calc(100% + 48px);
+            max-width: none;
             height: 232px;
+            margin-left: -24px;
+            margin-right: -24px;
+            margin-bottom: 0;
+            border-radius: 0;
         }
     }
 
@@ -96,7 +105,7 @@
         width: 100%;
         max-width: 310px;
 
-        @include media-down($bp-tablet) {
+        @include media-down($bp-contact) {
             max-width: 241px;
         }
     }
@@ -104,7 +113,7 @@
     &__input {
         @include form-input-base(33px, 13px, 1);
 
-        @include media-down($bp-tablet) {
+        @include media-down($bp-contact) {
             height: 46px;
             padding: 0 24px;
             border-width: 1.5px;
@@ -121,7 +130,7 @@
         width: 100%;
         max-width: 281px;
 
-        @include media-down($bp-tablet) {
+        @include media-down($bp-contact) {
             max-width: 241px;
         }
 
@@ -133,7 +142,7 @@
                 @include button-primary-hover-outline;
             }
 
-            @include media-down($bp-tablet) {
+            @include media-down($bp-contact) {
                 height: 44px;
                 padding: 16px 24px;
                 font-size: 16px;

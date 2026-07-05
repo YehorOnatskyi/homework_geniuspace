@@ -1,3 +1,8 @@
+$services-card-width: 344px;
+$services-card-gap: 16px;
+$services-slider-max-2: $services-card-width * 2 + $services-card-gap;
+$services-slider-max-3: $services-card-width * 3 + $services-card-gap * 2;
+
 .services {
     position: relative;
     z-index: 1;
@@ -37,9 +42,21 @@
         &-main {
             flex: 1;
             min-width: 0;
-            max-width: 1064px;
+            max-width: $services-slider-max-3;
             width: 100%;
             overflow: hidden;
+
+            @include media-up($bp-services-duo) {
+                @include media-down($bp-desktop) {
+                    max-width: $services-slider-max-2;
+                }
+            }
+
+            @include media-up($bp-tablet + 1px) {
+                @include media-down($bp-services-duo - 1px) {
+                    max-width: $services-card-width;
+                }
+            }
 
             @include media-down($bp-tablet) {
                 max-width: 320px;
@@ -60,6 +77,13 @@
         @include media-down($bp-tablet) {
             gap: 0;
             justify-content: flex-start;
+        }
+
+        @include media-up($bp-tablet + 1px) {
+            @include media-down($bp-services-duo - 1px) {
+                gap: 0;
+                justify-content: flex-start;
+            }
         }
     }
 

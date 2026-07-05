@@ -4,12 +4,11 @@
 
 .modal {
     position: fixed;
-    top: 50%;
-    left: 50%;
+    inset: 0;
     width: min(723px, calc(100vw - 48px));
-    max-height: calc(100vh - 48px);
-    height: auto;
-    transform: translate(-50%, -50%);
+    max-height: calc(100dvh - 48px);
+    height: fit-content;
+    margin: auto;
     z-index: 1001;
     border-radius: 48px;
     overflow-x: hidden;
@@ -23,6 +22,8 @@
     align-items: center;
     opacity: 1;
     visibility: visible;
+    transform: scale(1);
+    transform-origin: center center;
     transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
     @include panel-dark-bg;
 
@@ -31,7 +32,7 @@
         opacity: 0;
         visibility: hidden;
         pointer-events: none;
-        transform: translate(-50%, -47%) scale(0.98);
+        transform: scale(0.98);
     }
 
     .button--primary {
@@ -191,10 +192,105 @@
         }
     }
 
-    @include media-down($breakpoint-tablet) {
+    @include media-down($bp-contact) {
+        width: min(723px, calc(100vw - 32px));
+        max-height: calc(100dvh - 32px);
+        padding: 40px 48px;
+
+        &__content {
+            gap: 32px;
+            width: 100%;
+            max-width: 435px;
+        }
+
+        &__title {
+            width: 100%;
+            font-size: clamp(36px, 6vw, 56px);
+            line-height: 1.1;
+        }
+
+        &__body {
+            width: 100%;
+            max-width: 310px;
+            gap: 24px;
+        }
+
+        &__subtitle {
+            width: 100%;
+            font-size: 20px;
+            line-height: 1.2;
+        }
+
+        &__form {
+            gap: 20px;
+        }
+
+        &__actions {
+            width: 100%;
+            max-width: 281px;
+        }
+
+        &__close {
+            top: 32px;
+            right: 32px;
+        }
+    }
+
+    @include media-down($bp-tablet) {
+        width: min(320px, calc(100vw - 32px));
         padding: 32px 24px 40px;
         border-radius: var(--radius-card);
-        max-height: calc(100vh - 24px);
+        max-height: calc(100dvh - 24px);
+
+        &__content {
+            gap: 24px;
+            max-width: 272px;
+        }
+
+        &__title {
+            font-size: 40px;
+            line-height: 1;
+        }
+
+        &__body {
+            max-width: 241px;
+            gap: 24px;
+        }
+
+        &__subtitle {
+            max-width: 272px;
+            font-size: 18px;
+            line-height: 1.2;
+        }
+
+        &__form {
+            gap: 16px;
+        }
+
+        &__input {
+            height: 46px;
+            padding: 0 24px;
+            border-width: 1.5px;
+            border-radius: 24px;
+            font-size: 13px;
+        }
+
+        &__actions {
+            max-width: 241px;
+
+            .button--primary {
+                width: 100%;
+                height: 44px;
+                padding: 16px 24px;
+                font-size: 16px;
+                border-radius: 24px;
+                text-wrap: wrap;
+            }
+        }
+
+        &__policy {
+            max-width: 100%;
+        }
 
         &__close {
             top: 24px;
@@ -204,5 +300,8 @@
 }
 
 body.is-modal-open {
+    position: fixed;
+    inset: 0;
+    width: 100%;
     overflow: hidden;
 }
