@@ -5,6 +5,10 @@
     background-size: contain;
     background-position: right center;
 
+    @include retina {
+        background-image: url('../images/footer-background@2x.png');
+    }
+
     @include media-down($bp-tablet) {
         background-image: url('../images/footer_background.png');
         background-repeat: no-repeat;

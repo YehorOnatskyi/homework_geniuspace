@@ -101,14 +101,29 @@ $why-us-fade-height-xl: 160px;
     background-position: center;
 }
 
-@mixin services-card-overlay($image-url) {
-    background-image: linear-gradient(
+@mixin retina {
+    @media screen and (min-device-pixel-ratio: 2),
+        (min-resolution: 192dpi),
+        (min-resolution: 2dppx) {
+        @content;
+    }
+}
+
+@mixin services-card-overlay($image-url, $image-url-2x: null) {
+    $overlay-gradient: linear-gradient(
         180deg,
         rgba(1, 28, 68, 0) 47%,
         rgba(1, 28, 68, 0.73) 83%,
         var(--secondary-color) 99%
-    ),
-    url($image-url);
+    );
+
+    background-image: $overlay-gradient, url($image-url);
+
+    @if $image-url-2x {
+        @include retina {
+            background-image: $overlay-gradient, url($image-url-2x);
+        }
+    }
 }
 
 @mixin why-us-bottom-fade($fade-height) {

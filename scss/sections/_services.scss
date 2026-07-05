@@ -190,15 +190,15 @@ $services-slider-max-3: $services-card-width * 3 + $services-card-gap * 2;
         }
 
         &--mask {
-            @include services-card-overlay('../images/facial_mask.jpg');
+            @include services-card-overlay('../images/facial_mask.jpg', '../images/facial_mask@2x.jpg');
         }
 
         &--injection {
-            @include services-card-overlay('../images/face_injection.jpg');
+            @include services-card-overlay('../images/face_injection.jpg', '../images/face_injection@2x.jpg');
         }
 
         &--clean {
-            @include services-card-overlay('../images/clean_face.jpg');
+            @include services-card-overlay('../images/clean_face.jpg', '../images/clean_face@2x.jpg');
         }
     }
 }
