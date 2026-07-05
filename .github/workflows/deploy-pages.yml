@@ -33,20 +33,20 @@ jobs:
       - name: Install dependencies and build assets
         run: npm ci && npm run build
 
+      - name: Prepare Pages artifact
+        run: |
+          mkdir -p _site
+          cp index.html _site/
+          cp .nojekyll _site/
+          cp -r css js images icons fonts _site/
+
       - name: Setup Pages
         uses: actions/configure-pages@v5
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: |
-            index.html
-            css
-            js
-            images
-            icons
-            fonts
-            .nojekyll
+          path: _site
 
       - name: Deploy to GitHub Pages
         id: deployment
