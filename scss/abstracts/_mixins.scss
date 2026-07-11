@@ -9,6 +9,8 @@ $why-us-wave-top-lg: -175px;
 $why-us-wave-top-xl: -225px;
 $why-us-fade-height-lg: 140px;
 $why-us-fade-height-xl: 160px;
+$why-us-bg-height: 900px;
+$why-us-wave-tablet-min: 692px;
 
 @mixin media-down($width) {
     @media screen and (max-width: $width) {

@@ -269,10 +269,10 @@
         wrapper.style.transition = `transform ${slideDurationMs}ms ease-in-out`;
         wrapper.style.transform = 'translateX(0)';
         void wrapper.offsetWidth;
-        wrapper.style.transform = `translateX(${step}px)`;
+        wrapper.style.transform = `translateX(-${step}px)`;
       },
       () => {
-        wrapper.insertBefore(wrapper.lastElementChild, wrapper.firstElementChild);
+        wrapper.appendChild(wrapper.firstElementChild);
         activeIndex = (activeIndex + 1) % slideCount;
       },
       onComplete,
@@ -285,10 +285,10 @@
         wrapper.style.transition = `transform ${slideDurationMs}ms ease-in-out`;
         wrapper.style.transform = 'translateX(0)';
         void wrapper.offsetWidth;
-        wrapper.style.transform = `translateX(-${step}px)`;
+        wrapper.style.transform = `translateX(${step}px)`;
       },
       () => {
-        wrapper.appendChild(wrapper.firstElementChild);
+        wrapper.insertBefore(wrapper.lastElementChild, wrapper.firstElementChild);
         activeIndex = (activeIndex - 1 + slideCount) % slideCount;
       },
       onComplete,
